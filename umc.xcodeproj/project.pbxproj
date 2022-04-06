@@ -16,6 +16,7 @@
 		BE2B819A27E753FE00AE898B /* umcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2B819927E753FE00AE898B /* umcUITests.swift */; };
 		BE2B819C27E753FE00AE898B /* umcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2B819B27E753FE00AE898B /* umcUITestsLaunchTests.swift */; };
 		BE348CBA27FD717F00DD189C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE348CB927FD717F00DD189C /* LoginViewController.swift */; };
+		BE348CBC27FD7C4000DD189C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE348CBB27FD7C4000DD189C /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		BE2B819927E753FE00AE898B /* umcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = umcUITests.swift; sourceTree = "<group>"; };
 		BE2B819B27E753FE00AE898B /* umcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = umcUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE348CB927FD717F00DD189C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BE348CBB27FD7C4000DD189C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				BE2B817827E753FB00AE898B /* AppDelegate.swift */,
 				BE2B817A27E753FB00AE898B /* SceneDelegate.swift */,
 				BE2B817E27E753FB00AE898B /* Main.storyboard */,
+				BE348CBB27FD7C4000DD189C /* RegisterViewController.swift */,
 				BE348CB927FD717F00DD189C /* LoginViewController.swift */,
 				BE2B818127E753FD00AE898B /* Assets.xcassets */,
 				BE2B818327E753FD00AE898B /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 				BE348CBA27FD717F00DD189C /* LoginViewController.swift in Sources */,
 				BE2B817927E753FB00AE898B /* AppDelegate.swift in Sources */,
 				BE2B817B27E753FB00AE898B /* SceneDelegate.swift in Sources */,
+				BE348CBC27FD7C4000DD189C /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

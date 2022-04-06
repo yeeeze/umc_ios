@@ -17,8 +17,6 @@ class LoginViewController: UIViewController {
 
     }
     
-
-
     @IBAction func emailTextFieldEditingChanged(_ sender: UITextField) {
         // 옵셔널
         // 값이 있을 수도 없을 수도
@@ -36,7 +34,16 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerButtonDidTap(_ sender: UIButton) {
+        // 화면 전환
+        // 1 스토리보드를 생성
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        // 2 뷰컨트롤러를 생성
+        let registerViewController = storyboard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
         
+        // 3 화면전환 메소드를 이용해서 화면을 전환
+//        self.present(registerViewController, animated: true, completion: nil)
+        
+        self.navigationController?.pushViewController(registerViewController, animated: true)
     }
 }
