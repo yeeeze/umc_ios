@@ -289,6 +289,12 @@
                             <constraint firstItem="tLG-AX-Cri" firstAttribute="trailing" secondItem="fjg-gH-xMi" secondAttribute="trailing" constant="10" id="vSU-fv-K0l"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="qOS-Bq-9cl" id="KxU-OY-tUV"/>
+                        <outlet property="nameTextField" destination="QY8-yp-qGI" id="7AT-XQ-r9S"/>
+                        <outlet property="nicknameTextField" destination="IY3-d4-U7g" id="Gq8-tq-CZp"/>
+                        <outlet property="passwordTextField" destination="iOP-kX-ufV" id="0wf-MV-Bz4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GSt-gf-WLX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
