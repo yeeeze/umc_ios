@@ -8,6 +8,14 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
+    // MARK: - Properties
+    var email: String = ""
+    var name: String = ""
+    var nickname: String = ""
+    var password: String = ""
+    
+    var userInfo: ((UserInfo) -> Void)?
+    
     // MARK: - Name
     // 유효성 검사를 위한 프로퍼티
     var isValidEmail = false {
@@ -57,6 +65,10 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         setupTextField()
         setupAttribute()
+        
+        // bug fix
+        self.navigationController?
+            .interactivePopGestureRecognizer?.delegate = nil
     }
     
     // MARK: - Actions
@@ -67,20 +79,41 @@ class RegisterViewController: UIViewController {
         switch sender {
         case emailTextField:
             self.isValidEmail = text.isValidEmail()
+            self.email = text
             
         case nameTextField:
             self.isValidName = text.count > 2
+            self.name = text
             
         case nicknameTextField:
             self.isValidNickName = text.count > 2
+            self.nickname = text
             
         case passwordTextField:
             self.isValidPassword = text.isValidPassword()
+            self.password = text
             
         default:
             fatalError("Missing TextField...")
         }
     }
+    
+    @IBAction func backButtonDidTap(_ sender: UIBarButtonItem) {
+        // 뒤로가기
+        self.navigationController?
+            .popViewController(animated: true)
+    }
+    
+    @IBAction func registerButtonDidtap(_ sender: UIButton) {
+        // 뒤로가기
+        self.navigationController?
+            .popViewController(animated: true)
+        
+        let userInfo = UserInfo(email: self.email, name: self.name, nickname: self.nickname, password: self.password)
+        
+        self.userInfo?(userInfo)
+    }
+    
     
     // MARK: - Helpers
     private func setupTextField() {

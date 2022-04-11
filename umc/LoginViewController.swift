@@ -11,7 +11,9 @@ class LoginViewController: UIViewController {
     
     var email = String()
     var password = String()
+    var userInfo: UserInfo?
 
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
     override func viewDidLoad() {
@@ -24,16 +26,34 @@ class LoginViewController: UIViewController {
         // 옵셔널
         // 값이 있을 수도 없을 수도
         let text = sender.text ?? ""
-        print(text)
+        if text.isValidEmail() {
+            self.loginButton.backgroundColor = .facebookColor
+        } else {
+            self.loginButton.backgroundColor = .disabledButtonColor
+        }
         self.email = text
     }
     
     @IBAction func passwordTextFieldEditingChanged(_ sender: UITextField) {
         let text = sender.text ?? ""
+        if text.count > 2 {
+            self.loginButton.backgroundColor = .facebookColor
+        } else {
+            self.loginButton.backgroundColor = .disabledButtonColor
+        }
         self.password = text
     }
     
     @IBAction func loginButtonDidTap(_ sender: UIButton) {
+        // 회원가입 정보를 전달 받아서, 그것과 textField 데이터가 일치하면,
+        // 로그인이 되어야 한다.
+        guard let userInfo = self.userInfo else { return }
+        if userInfo.email == self.email
+            && userInfo.password == self.password {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "TestVC") as! TestViewController
+            self.present(vc, animated: true, completion: nil)
+        } else {
+        }
     }
     
     @IBAction func registerButtonDidTap(_ sender: UIButton) {
@@ -48,6 +68,11 @@ class LoginViewController: UIViewController {
 //        self.present(registerViewController, animated: true, completion: nil)
         
         self.navigationController?.pushViewController(registerViewController, animated: true)
+        
+        // ARC -> 강한참조 / 약한참조 -> ARC 낮춰줌
+        registerViewController.userInfo = { [weak self](userInfo) in
+            self?.userInfo = userInfo
+        }
     }
     
     private func setupAttribute() {
