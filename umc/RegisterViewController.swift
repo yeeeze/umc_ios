@@ -34,6 +34,10 @@ class RegisterViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var signupButton: UIButton!
+    
+    @IBOutlet weak var popToLoginButton: UIButton!
+    
     // Textfields
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -44,8 +48,6 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var signupButton: UIButton!
-    
     var textFields: [UITextField] {
         [emailTextField, nameTextField, nicknameTextField, passwordTextField]
     }
@@ -54,6 +56,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextField()
+        setupAttribute()
     }
     
     // MARK: - Actions
@@ -104,7 +107,26 @@ class RegisterViewController: UIViewController {
             UIView.animate(withDuration: 0.33) {
                  self.signupButton.backgroundColor = .disabledButtonColor
             }
+        }
     }
+    
+    private func setupAttribute() {
+        //registerButton
+        let text1 = "계정이 있으신가요?"
+        let text2 = "로그인"
+        
+        let font1 = UIFont.systemFont(ofSize: 13)
+        let font2 = UIFont.boldSystemFont(ofSize: 13)
+        
+        let color1 = UIColor.darkGray
+        let color2 = UIColor.facebookColor
+        
+        let attributes = generateButtonAttribute(self.popToLoginButton,
+                                                 texts: text1, text2,
+                                                 fonts: font1, font2,
+                                                 colors: color1, color2)
+        
+        self.popToLoginButton.setAttributedTitle(attributes, for: .normal)
     }
 }
 
